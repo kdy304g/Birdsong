@@ -12,6 +12,8 @@
 		309F405D224CFD750049DD2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309F405B224CFD750049DD2F /* Main.storyboard */; };
 		309F405F224CFD750049DD2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309F405E224CFD750049DD2F /* Assets.xcassets */; };
 		309F4062224CFD750049DD2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309F4060224CFD750049DD2F /* LaunchScreen.storyboard */; };
+		30D038112251E53A00425291 /* Mountain Chickadee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30D038102251E53A00425291 /* Mountain Chickadee.mp3 */; };
+		30D038132251E64C00425291 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D038122251E64C00425291 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		309F405E224CFD750049DD2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		309F4061224CFD750049DD2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		309F4063224CFD750049DD2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30D038102251E53A00425291 /* Mountain Chickadee.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mountain Chickadee.mp3"; sourceTree = "<group>"; };
+		30D038122251E64C00425291 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +60,22 @@
 			children = (
 				309F4057224CFD750049DD2F /* AppDelegate.swift */,
 				309F4059224CFD750049DD2F /* ViewController.swift */,
+				30D038122251E64C00425291 /* TestViewController.swift */,
 				309F405B224CFD750049DD2F /* Main.storyboard */,
 				309F405E224CFD750049DD2F /* Assets.xcassets */,
 				309F4060224CFD750049DD2F /* LaunchScreen.storyboard */,
 				309F4063224CFD750049DD2F /* Info.plist */,
+				30D0380F2251E4FE00425291 /* Sound Files */,
 			);
 			path = Birdsong;
+			sourceTree = "<group>";
+		};
+		30D0380F2251E4FE00425291 /* Sound Files */ = {
+			isa = PBXGroup;
+			children = (
+				30D038102251E53A00425291 /* Mountain Chickadee.mp3 */,
+			);
+			path = "Sound Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				309F4062224CFD750049DD2F /* LaunchScreen.storyboard in Resources */,
+				30D038112251E53A00425291 /* Mountain Chickadee.mp3 in Resources */,
 				309F405F224CFD750049DD2F /* Assets.xcassets in Resources */,
 				309F405D224CFD750049DD2F /* Main.storyboard in Resources */,
 			);
@@ -136,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				309F405A224CFD750049DD2F /* ViewController.swift in Sources */,
+				30D038132251E64C00425291 /* TestViewController.swift in Sources */,
 				309F4058224CFD750049DD2F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
