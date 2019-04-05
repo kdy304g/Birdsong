@@ -39,7 +39,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         } else {
             return regions.count
         }
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -56,5 +55,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         showRegion.text = "The season is \(seasons[rowSeason]) in \(regions[rowRegion])"
     }
 
+    
+    
+    
 }
+
 

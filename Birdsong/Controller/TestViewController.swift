@@ -9,16 +9,22 @@
 import UIKit
 import AVFoundation
 
-class TestViewController: UIViewController {
+class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var answerTextField: UITextField!
-    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var pickerChoices: UIPickerView!
     
     var audioPlayer : AVAudioPlayer!
+    
+    let allQuestions = QuestionSet()
+    var choices = AnswerSet()
+    var pickedAnswer : Bool = false
+    var questionNumber : Int = 0
+    var score : Int = 0
+    
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultLabel.text = ""
         let bundle = Bundle.main
         let audioURL = bundle.url(forResource: "Mountain Chickadee", withExtension: "mp3")
         
@@ -28,6 +34,16 @@ class TestViewController: UIViewController {
         }
     }
     
+    //MARK: delegate methods
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 4
+    }
+    
+    //MARK: methods for playing sounds
     @IBAction func playAudio(_ sender: UIButton) {
         if let player = audioPlayer {
             player.play()
@@ -47,20 +63,10 @@ class TestViewController: UIViewController {
         }
     }
     
-    @IBAction func enter(_ sender: UIButton) {
-        if answerTextField.text == "chickadee" {
-            resultLabel.text = "Correct!"
-        } else {
-            resultLabel.text = "Wrong!"
-        }
-    }
-    
-    @IBAction func didFinishEnter() {
-        if answerTextField.text == "chickadee" {
-            resultLabel.text = "Correct!"
-        } else {
-            resultLabel.text = "Wrong!"
-        }
+    @IBAction func choosePressed(_ sender: Any) {
+        
+        //if text of picker item equals question.answer, alert correct else wrong
+        
     }
     
 }
