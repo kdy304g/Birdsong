@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+	<script>
+		function testFormSubmit() {
+			if (document.getElementById('test-bird').value == 'chickadee' || document.getElementById('test-bird').value == 'Chickadee') {
+				var audio = new Audio('correct.mp3');
+				audio.play();
+			} else {
+				var audio = new Audio('wrong.mp3');
+				audio.play();
+			}
+		};
+	</script>
+	<body>
+		<progress id="test-progress" max="100" value="70">70%</progress>
+		<br/>
+		<form id="test-form" onsubmit="testFormSubmit()" target="page-end">
+			<label for="test-bird">What's this bird?</label>
+			<br/>
+			<input type="text" id="test-bird" name="test-bird" placeholder="Bird Name"/>
+			<br/>
+			<button id="test-bird-button">Answer</button>
+		</form>
+		<audio id="bird-sound" autoplay="true" controls>
+			<source src="Birds/Spring-Summer/chickadee/call.mp3" type="audio/mp3">
+		</audio>
+		<form action="score.html">
+			<button id="end-test">End Test</button>
+		</form>
+		<iframe width="0" height="0" border="0" name="page-end" id="page-end" visible="false"></iframe>
+	</body>
+</html>

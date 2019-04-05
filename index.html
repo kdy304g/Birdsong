@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+	<body>
+		<form class="search">
+			<input type="search" id="bird-search" name="bird-search" placeholder="Bird Search"/>
+			<button type="submit">Submit</button>
+		</form>
+		<a href="settings.html">Settings</a>
+		<br/>
+		<label for="profile-picture">Profile</label>
+		<br/>
+		<img id="profile-picture" src="profile.png" alt="Profile Picture"/>
+		<br/>
+		<select id="saved-tests">
+			<option>Previous Tests</option>
+			<option>Massachusetts Grasslands Spring/Summer</option>
+		</select>
+		<br/>
+		<label for="new-test">Start New Test</label>
+		<div id="new-test">
+			<label for="location">Location</label>
+			<select id="location">
+				<option>Massachusetts</option>
+				<option>New England</option>
+			</select>
+			<br/>
+			<label for="habitat">Habitat</label>
+			<select id="habitat">
+				<option>Grasslands</option>
+				<option>Wetlands</option>
+			</select>
+			<br/>
+			<label for="season">Season</label>
+			<select id="season">
+				<option>Spring/Summer</option>
+				<option>Fall/Winter</option>
+			</select>
+		</div>
+		<input type="text" id="name-test" name="name-test" placeholder="Name Test"/>
+		<br/>
+		<form action="test.html">
+			<button id="take-test">Take Test</button>
+		</form>
+	</body>
+</html>
