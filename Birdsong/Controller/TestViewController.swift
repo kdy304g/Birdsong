@@ -88,17 +88,26 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         } else {
             if allQuestions.listQuestions[questionNumber].answer == pickedAnswer {
                 let alert = UIAlertController(title: "Correct!", message: "You've finished all the questions, do you want to start over?", preferredStyle: .alert)
+                
                 let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { UIAlertAction in
                     self.startOver()
                 })
+                let backToMenuAction = UIAlertAction(title: "Menu", style: .default, handler: { UIAlertAction in
+                    self.startOver()
+                })
                 alert.addAction(restartAction)
+                alert.addAction(backToMenuAction)
                 present(alert, animated: true, completion: nil)
             } else {
                 let alert = UIAlertController(title: "Wrong!", message: "You've finished all the questions, do you want to start over?", preferredStyle: .alert)
                 let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { UIAlertAction in
                     self.startOver()
                 })
+                let backToMenuAction = UIAlertAction(title: "Menu", style: .default, handler: { UIAlertAction in
+                    self.startOver()
+                })
                 alert.addAction(restartAction)
+                alert.addAction(backToMenuAction)
                 present(alert, animated: true, completion: nil)
             }
         }
@@ -112,12 +121,9 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func showResult(title: String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         present(alert, animated: true, completion: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            
-            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             alert.dismiss(animated: true, completion: nil)
             UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: self.pickerChoices)
-
         }
     }
     
@@ -135,7 +141,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         nextQuestion()
         
-        print("starting over! questionNumber is \(questionNumber)")
+//        print("starting over! questionNumber is \(questionNumber)")
         
     }
     
