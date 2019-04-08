@@ -9,12 +9,12 @@
 import Foundation
 
 class AnswerSet {
-    var list = [String]()
+    var options = [String]()
     
     init() {
-        list.append("chickadee")
-        list.append("chickadee")
-        list.append("chickadee")
-        list.append("chickadee")
+        options.append("chickadee")
+        options.append("crow")
+        options.append("owl")
+        options.append("yellowtail")
     }
 }

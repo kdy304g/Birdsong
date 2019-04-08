@@ -12,19 +12,26 @@ import AVFoundation
 class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var pickerChoices: UIPickerView!
+    @IBOutlet weak var result: UILabel!
     
     var audioPlayer : AVAudioPlayer!
     
-    let allQuestions = QuestionSet()
-    var choices = AnswerSet()
-    var pickedAnswer : Bool = false
+    var allQuestions = QuestionSet()
+    var answerSet = AnswerSet()
+    var pickedAnswer : String = ""
     var questionNumber : Int = 0
     var score : Int = 0
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerChoices.delegate = self
+        pickerChoices.dataSource = self
+        
+        if let index = answerSet.options.firstIndex(of: "chickadee") {
+            pickerChoices.selectRow(index, inComponent: 0, animated: false)
+        }
         let bundle = Bundle.main
         let audioURL = bundle.url(forResource: "Mountain Chickadee", withExtension: "mp3")
         
@@ -32,9 +39,11 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if audioPlayer != nil {
             audioPlayer.prepareToPlay()
         }
+        pickedAnswer = answerSet.options[0]
+        print(answerSet.options)
     }
     
-    //MARK: delegate methods
+    // MARK: delegate methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -43,7 +52,17 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return 4
     }
     
-    //MARK: methods for playing sounds
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return answerSet.options[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let rowPicked = pickerChoices.selectedRow(inComponent: 0)
+        pickedAnswer = answerSet.options[rowPicked]
+        print("pickedAnswer: \(pickedAnswer)")
+    }
+    
+    // MARK: methods for playing sounds
     @IBAction func playAudio(_ sender: UIButton) {
         if let player = audioPlayer {
             player.play()
@@ -64,8 +83,15 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     @IBAction func choosePressed(_ sender: Any) {
-        
-        //if text of picker item equals question.answer, alert correct else wrong
+        if allQuestions.listQuestions[questionNumber].answer == pickedAnswer {
+            result.text = "Correct!"
+        } else {
+            result.text = "Wrong!"
+        }
+    }
+    
+    // MARK: question related methods
+    func createQuestionSet() {
         
     }
     

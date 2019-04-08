@@ -9,9 +9,14 @@
 import Foundation
 
 class QuestionSet {
-    var list = [Question]()
+    var listQuestions = [Question]()
     
     init() {
-        list.append(Question(fileName: "Mountain Chickadee", correctAnswer: "chickadee"))
+        listQuestions.append(Question(fileName: "Mountain Chickadee", correctAnswer: "chickadee"))
+        listQuestions.append(Question(fileName: "Mountain Chickadee", correctAnswer: "chickadee"))
+        listQuestions.append(Question(fileName: "Mountain Chickadee", correctAnswer: "chickadee"))
+        listQuestions.append(Question(fileName: "Mountain Chickadee", correctAnswer: "chickadee"))
+        listQuestions.append(Question(fileName: "Mountain Chickadee", correctAnswer: "chickadee"))
+
     }
 }
