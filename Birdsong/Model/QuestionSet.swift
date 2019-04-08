@@ -13,10 +13,10 @@ class QuestionSet {
     
     init() {
         listQuestions.append(Question(fileName: "Mountain Chickadee", correctAnswer: "chickadee"))
-        listQuestions.append(Question(fileName: "Mountain Chickadee", correctAnswer: "chickadee"))
-        listQuestions.append(Question(fileName: "Mountain Chickadee", correctAnswer: "chickadee"))
-        listQuestions.append(Question(fileName: "Mountain Chickadee", correctAnswer: "chickadee"))
-        listQuestions.append(Question(fileName: "Mountain Chickadee", correctAnswer: "chickadee"))
+        listQuestions.append(Question(fileName: "Meadowlark", correctAnswer: "meadowlark"))
+        listQuestions.append(Question(fileName: "Falcon", correctAnswer: "falcon"))
+        listQuestions.append(Question(fileName: "Geese", correctAnswer: "geese"))
+        listQuestions.append(Question(fileName: "Rooster", correctAnswer: "rooster"))
 
     }
 }

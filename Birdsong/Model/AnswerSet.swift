@@ -13,8 +13,9 @@ class AnswerSet {
     
     init() {
         options.append("chickadee")
-        options.append("crow")
-        options.append("owl")
-        options.append("yellowtail")
+        options.append("meadowlark")
+        options.append("falcon")
+        options.append("geese")
+        options.append("rooster")
     }
 }

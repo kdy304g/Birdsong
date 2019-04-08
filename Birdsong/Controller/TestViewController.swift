@@ -19,6 +19,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var pickedAnswer : String = ""
     var questionNumber : Int = 0
     var score : Int = 0
+    var audioURL : URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,15 +29,9 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if let index = answerSet.options.firstIndex(of: "chickadee") {
             pickerChoices.selectRow(index, inComponent: 0, animated: false)
         }
-        let bundle = Bundle.main
-        let audioURL = bundle.url(forResource: "Mountain Chickadee", withExtension: "mp3")
-        
-        audioPlayer = try? AVAudioPlayer(contentsOf: audioURL!)
-        if audioPlayer != nil {
-            audioPlayer.prepareToPlay()
-        }
+        nextQuestion()
         pickedAnswer = answerSet.options[0]
-        print(answerSet.options)
+        print("\(answerSet.options)")
     }
     
     // MARK: delegate methods
@@ -82,11 +77,34 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     // MARK: button related action
     
     @IBAction func choosePressed(_ sender: Any) {
-        if allQuestions.listQuestions[questionNumber].answer == pickedAnswer {
-            showResult(title: "correct!")
+        if questionNumber <= 3 {
+            if allQuestions.listQuestions[questionNumber].answer == pickedAnswer {
+                showResult(title: "correct!")
+            } else {
+                showResult(title: "wrong!")
+            }
+            questionNumber += 1
+            nextQuestion()
         } else {
-            showResult(title: "wrong!")
+            if allQuestions.listQuestions[questionNumber].answer == pickedAnswer {
+                let alert = UIAlertController(title: "Correct!", message: "You've finished all the questions, do you want to start over?", preferredStyle: .alert)
+                let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { UIAlertAction in
+                    self.startOver()
+                })
+                alert.addAction(restartAction)
+                present(alert, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Wrong!", message: "You've finished all the questions, do you want to start over?", preferredStyle: .alert)
+                let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { UIAlertAction in
+                    self.startOver()
+                })
+                alert.addAction(restartAction)
+                present(alert, animated: true, completion: nil)
+            }
         }
+        
+        
+        print("\(questionNumber)")
     }
     
     // MARK: notifications
@@ -105,7 +123,35 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
     }
     
+    func startOver() {
+        
+        questionNumber = 0
+//        score = 0
+//
+//        updateUI()
+        
+        if let player = audioPlayer {
+            player.play()
+        }
+        
+    }
     
+    func nextQuestion() {
+        let title = allQuestions.listQuestions[questionNumber].soundFile
+        let bundle = Bundle.main
+        
+        audioURL = bundle.url(forResource: title, withExtension: "mp3")
+        audioPlayer = try? AVAudioPlayer(contentsOf: audioURL!)
+        if audioPlayer != nil {
+            audioPlayer.prepareToPlay()
+        }
+        
+        if let player = audioPlayer {
+            player.play()
+        }
+        
+        print("correct answer: \(title), \(allQuestions.listQuestions[questionNumber].soundFile)")
+    }
 }
     
 
