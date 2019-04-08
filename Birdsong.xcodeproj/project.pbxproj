@@ -13,9 +13,9 @@
 		300D4B3D2257B42B00D77EEB /* AnswerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D4B3C2257B42B00D77EEB /* AnswerSet.swift */; };
 		300D4B4C225AEE4100D77EEB /* Mountain Chickadee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 300D4B4B225AEE4100D77EEB /* Mountain Chickadee.mp3 */; };
 		300D4B4E225AF89F00D77EEB /* Meadowlark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 300D4B4D225AF89F00D77EEB /* Meadowlark.mp3 */; };
-		300D4B52225B0EF700D77EEB /* Geese.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 300D4B4F225B0EF700D77EEB /* Geese.mp3 */; };
-		300D4B53225B0EF700D77EEB /* Falcon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 300D4B50225B0EF700D77EEB /* Falcon.mp3 */; };
-		300D4B54225B0EF700D77EEB /* Rooster.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 300D4B51225B0EF700D77EEB /* Rooster.mp3 */; };
+		300D4B56225B13BB00D77EEB /* Duck.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 300D4B55225B13BB00D77EEB /* Duck.mp3 */; };
+		300D4B58225B146600D77EEB /* Crow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 300D4B57225B146600D77EEB /* Crow.mp3 */; };
+		300D4B5A225B14B300D77EEB /* Owl.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 300D4B59225B14B300D77EEB /* Owl.mp3 */; };
 		309F4058224CFD750049DD2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309F4057224CFD750049DD2F /* AppDelegate.swift */; };
 		309F405A224CFD750049DD2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309F4059224CFD750049DD2F /* ViewController.swift */; };
 		309F405D224CFD750049DD2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309F405B224CFD750049DD2F /* Main.storyboard */; };
@@ -31,9 +31,9 @@
 		300D4B3C2257B42B00D77EEB /* AnswerSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSet.swift; sourceTree = "<group>"; };
 		300D4B4B225AEE4100D77EEB /* Mountain Chickadee.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Mountain Chickadee.mp3"; path = "../../../../Mountain Chickadee.mp3"; sourceTree = "<group>"; };
 		300D4B4D225AF89F00D77EEB /* Meadowlark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Meadowlark.mp3; path = ../../../../Meadowlark.mp3; sourceTree = "<group>"; };
-		300D4B4F225B0EF700D77EEB /* Geese.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Geese.mp3; path = ../../../../Geese.mp3; sourceTree = "<group>"; };
-		300D4B50225B0EF700D77EEB /* Falcon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Falcon.mp3; path = ../../../../Falcon.mp3; sourceTree = "<group>"; };
-		300D4B51225B0EF700D77EEB /* Rooster.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Rooster.mp3; path = ../../../../Rooster.mp3; sourceTree = "<group>"; };
+		300D4B55225B13BB00D77EEB /* Duck.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Duck.mp3; path = ../../../../Duck.mp3; sourceTree = "<group>"; };
+		300D4B57225B146600D77EEB /* Crow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Crow.mp3; path = ../../../../Crow.mp3; sourceTree = "<group>"; };
+		300D4B59225B14B300D77EEB /* Owl.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Owl.mp3; path = ../../../../Owl.mp3; sourceTree = "<group>"; };
 		309F4054224CFD750049DD2F /* Birdsong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birdsong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		309F4057224CFD750049DD2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		309F4059224CFD750049DD2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,9 +125,9 @@
 		30D0380F2251E4FE00425291 /* Sound Files */ = {
 			isa = PBXGroup;
 			children = (
-				300D4B50225B0EF700D77EEB /* Falcon.mp3 */,
-				300D4B4F225B0EF700D77EEB /* Geese.mp3 */,
-				300D4B51225B0EF700D77EEB /* Rooster.mp3 */,
+				300D4B59225B14B300D77EEB /* Owl.mp3 */,
+				300D4B57225B146600D77EEB /* Crow.mp3 */,
+				300D4B55225B13BB00D77EEB /* Duck.mp3 */,
 				300D4B4B225AEE4100D77EEB /* Mountain Chickadee.mp3 */,
 				300D4B4D225AF89F00D77EEB /* Meadowlark.mp3 */,
 			);
@@ -193,13 +193,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				309F4062224CFD750049DD2F /* LaunchScreen.storyboard in Resources */,
+				300D4B58225B146600D77EEB /* Crow.mp3 in Resources */,
 				300D4B4E225AF89F00D77EEB /* Meadowlark.mp3 in Resources */,
+				300D4B5A225B14B300D77EEB /* Owl.mp3 in Resources */,
 				300D4B4C225AEE4100D77EEB /* Mountain Chickadee.mp3 in Resources */,
-				300D4B53225B0EF700D77EEB /* Falcon.mp3 in Resources */,
-				300D4B54225B0EF700D77EEB /* Rooster.mp3 in Resources */,
 				309F405F224CFD750049DD2F /* Assets.xcassets in Resources */,
 				300D4B3B2257AADA00D77EEB /* Default-568h@2x.png in Resources */,
-				300D4B52225B0EF700D77EEB /* Geese.mp3 in Resources */,
+				300D4B56225B13BB00D77EEB /* Duck.mp3 in Resources */,
 				309F405D224CFD750049DD2F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

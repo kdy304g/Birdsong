@@ -40,7 +40,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 4
+        return 5
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -130,13 +130,15 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 //
 //        updateUI()
         
-        if let player = audioPlayer {
-            player.play()
-        }
+        nextQuestion()
+        
+        print("starting over! questionNumber is \(questionNumber)")
         
     }
     
     func nextQuestion() {
+        
+        
         let title = allQuestions.listQuestions[questionNumber].soundFile
         let bundle = Bundle.main
         
@@ -149,7 +151,6 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if let player = audioPlayer {
             player.play()
         }
-        
         print("correct answer: \(title), \(allQuestions.listQuestions[questionNumber].soundFile)")
     }
 }
