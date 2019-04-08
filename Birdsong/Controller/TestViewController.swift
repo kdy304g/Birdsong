@@ -12,17 +12,13 @@ import AVFoundation
 class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var pickerChoices: UIPickerView!
-    @IBOutlet weak var result: UILabel!
     
     var audioPlayer : AVAudioPlayer!
-    
     var allQuestions = QuestionSet()
     var answerSet = AnswerSet()
     var pickedAnswer : String = ""
     var questionNumber : Int = 0
     var score : Int = 0
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,24 +65,38 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
-    @IBAction func stopAudio(_ sender: UIButton) {
-        if let player = audioPlayer {
-            player.stop()
-            player.currentTime = 0
-        }
-    }
     
-    @IBAction func pauseAudio(_ sender: UIButton) {
-        if let player = audioPlayer {
-            player.pause()
-        }
-    }
+//    @IBAction func stopAudio(_ sender: Any) {
+//        if let player = audioPlayer {
+//            player.stop()
+//            player.currentTime = 0
+//        }
+//    }
+//
+//    @IBAction func pauseAudio(_ sender: UIButton) {
+//        if let player = audioPlayer {
+//            player.pause()
+//        }
+//    }
+    
+    // MARK: button related action
     
     @IBAction func choosePressed(_ sender: Any) {
         if allQuestions.listQuestions[questionNumber].answer == pickedAnswer {
-            result.text = "Correct!"
+            showResult(title: "correct!")
         } else {
-            result.text = "Wrong!"
+            showResult(title: "wrong!")
+        }
+    }
+    
+    // MARK: notifications
+    
+    func showResult(title: String) {
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            
+            alert.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -95,4 +105,8 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
     }
     
+    
 }
+    
+
+
