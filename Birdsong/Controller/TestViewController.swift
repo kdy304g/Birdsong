@@ -23,6 +23,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: self.pickerChoices)
         pickerChoices.delegate = self
         pickerChoices.dataSource = self
         
@@ -59,7 +60,6 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             player.play()
         }
     }
-    
     
 //    @IBAction func stopAudio(_ sender: Any) {
 //        if let player = audioPlayer {
@@ -112,15 +112,18 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func showResult(title: String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         present(alert, animated: true, completion: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            
             
             alert.dismiss(animated: true, completion: nil)
+            UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: self.pickerChoices)
+
         }
     }
     
     // MARK: question related methods
     func createQuestionSet() {
-        
+        // please fill this out @Nate
     }
     
     func startOver() {
@@ -138,7 +141,6 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     func nextQuestion() {
         
-        
         let title = allQuestions.listQuestions[questionNumber].soundFile
         let bundle = Bundle.main
         
@@ -148,10 +150,12 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             audioPlayer.prepareToPlay()
         }
         
-        if let player = audioPlayer {
-            player.play()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            if let player = self.audioPlayer {
+                player.play()
+            }
         }
-        print("correct answer: \(title), \(allQuestions.listQuestions[questionNumber].soundFile)")
+//        print("correct answer: \(title), \(allQuestions.listQuestions[questionNumber].soundFile)")
     }
 }
     
