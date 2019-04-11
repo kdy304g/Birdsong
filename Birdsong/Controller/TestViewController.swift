@@ -12,13 +12,14 @@ import AVFoundation
 class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var pickerChoices: UIPickerView!
+    @IBOutlet weak var score: UILabel!
     
     var audioPlayer : AVAudioPlayer!
     var allQuestions = QuestionSet()
     var answerSet = AnswerSet()
     var pickedAnswer : String = ""
     var questionNumber : Int = 0
-    var score : Int = 0
+    var correct = 0
     var audioURL : URL?
     
     override func viewDidLoad() {
@@ -79,6 +80,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func choosePressed(_ sender: Any) {
         if questionNumber <= 3 {
             if allQuestions.listQuestions[questionNumber].answer == pickedAnswer {
+                correct += 1
                 showResult(title: "correct!")
             } else {
                 showResult(title: "wrong!")
@@ -87,7 +89,8 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             nextQuestion()
         } else {
             if allQuestions.listQuestions[questionNumber].answer == pickedAnswer {
-                let alert = UIAlertController(title: "Correct!", message: "You've finished all the questions, do you want to start over?", preferredStyle: .alert)
+                correct += 1
+                let alert = UIAlertController(title: "Correct!", message: "You got \(correct) out of 5!", preferredStyle: .alert)
                 
                 let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { UIAlertAction in
                     self.startOver()
@@ -104,16 +107,15 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     self.startOver()
                 })
                 let backToMenuAction = UIAlertAction(title: "Menu", style: .default, handler: { UIAlertAction in
-                    self.startOver()
+                    self.backToViewController()
                 })
                 alert.addAction(restartAction)
                 alert.addAction(backToMenuAction)
                 present(alert, animated: true, completion: nil)
             }
         }
-        
-        
-        print("\(questionNumber)")
+        updateScoreLabel()
+//        print("\(questionNumber)")
     }
     
     // MARK: notifications
@@ -162,6 +164,21 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             }
         }
 //        print("correct answer: \(title), \(allQuestions.listQuestions[questionNumber].soundFile)")
+    }
+    
+    // MARK: - other methods
+    func backToViewController () {
+        let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "firstViewController") as! ViewController
+        
+        self.navigationController?.pushViewController(firstViewController, animated: true)
+    }
+    
+    func updateScoreLabel() {
+        score.text = "\(correct) / 5"
+    }
+    
+    func motivationalMessage() {
+        
     }
 }
     

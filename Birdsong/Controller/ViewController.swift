@@ -26,7 +26,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             pickerRegions.selectRow(index, inComponent: 0, animated: false)
         }
         showRegion.text = "The Region is New England at Summer"
-
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -54,10 +53,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let rowRegion = pickerRegions.selectedRow(inComponent: 1)
         showRegion.text = "The season is \(seasons[rowSeason]) in \(regions[rowRegion])"
     }
-
-    
-    
-    
 }
 
 

@@ -13,7 +13,7 @@
         <!--Region and Season-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Birdsong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Birdsong" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,6 +87,9 @@
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4w-TF-gHz">
                                 <rect key="frame" x="37" y="296" width="172" height="216"/>
+                                <accessibility key="accessibilityConfiguration" label="options">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="172" id="iji-Pu-CXt"/>
                                 </constraints>
@@ -101,6 +104,13 @@
                                     <action selector="choosePressed:" destination="fH9-Rg-FUU" eventType="touchUpInside" id="4gb-6q-YZw"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpP-da-iY3">
+                                <rect key="frame" x="136" y="545" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -118,6 +128,7 @@
                     <navigationItem key="navigationItem" title="Test Page" id="z2A-Af-r3Z"/>
                     <connections>
                         <outlet property="pickerChoices" destination="e4w-TF-gHz" id="jKe-cU-HlP"/>
+                        <outlet property="score" destination="rpP-da-iY3" id="OuT-bP-hW8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Tb-pb-2W6" userLabel="First Responder" sceneMemberID="firstResponder"/>
