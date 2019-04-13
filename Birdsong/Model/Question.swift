@@ -17,6 +17,11 @@ class Question {
         soundFile = fileName
         answer = correctAnswer
     }
-    
 }
 
+extension Question: Equatable {
+    static func == (lhs: Question, rhs: Question) -> Bool {
+        return
+            lhs.soundFile == rhs.soundFile 
+    }
+}

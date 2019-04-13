@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, TestViewControllerDelegate, UINavigationControllerDelegate {
+    
+    func testViewControllerGoBack(_ controller: TestViewController) {
+        navigationController?.popViewController(animated: true)
+    }
     
     @IBOutlet weak var pickerRegions: UIPickerView!
     @IBOutlet weak var showRegion: UILabel!
@@ -26,6 +30,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             pickerRegions.selectRow(index, inComponent: 0, animated: false)
         }
         showRegion.text = "The Region is New England at Summer"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.delegate = self
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
