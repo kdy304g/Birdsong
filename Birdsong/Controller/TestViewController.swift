@@ -21,6 +21,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     weak var delegate: TestViewControllerDelegate?
     
     let allBirds = ["Eagle", "Goldfinch", "Goose", "Jay", "Sparrow", "Meadowlark", "Chickadee", "Owl", "Crow", "Duck"]
+    var regionName = ""
     var audioPlayer : AVAudioPlayer!
     var allQuestions = QuestionSet()
     var currentQuestion = ""
@@ -43,6 +44,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         nextQuestion()
 //        createAnswerSet()
         pickedAnswer = answerSet.options[0]
+        print(regionName)
     }
     
     // MARK: delegate methods

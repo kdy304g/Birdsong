@@ -19,6 +19,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     var regions: [String]!
     var seasons: [String]!
+    var region = "New England"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let rowSeason = pickerRegions.selectedRow(inComponent: 0)
         let rowRegion = pickerRegions.selectedRow(inComponent: 1)
         showRegion.text = "The season is \(seasons[rowSeason]) in \(regions[rowRegion])"
+        region = regions[rowRegion]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is TestViewController {
+            if let test = segue.destination as? TestViewController {
+                test.regionName = region
+            }
+        }
     }
 }
 
