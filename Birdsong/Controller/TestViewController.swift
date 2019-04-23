@@ -9,20 +9,32 @@
 import UIKit
 import AVFoundation
 
+protocol TestViewControllerDelegate: class {
+    func testViewControllerGoBack(_ controller: TestViewController)
+}
+
 class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var pickerChoices: UIPickerView!
+    @IBOutlet weak var score: UILabel!
     
+    weak var delegate: TestViewControllerDelegate?
+    
+    let allBirds = ["Eagle", "Goldfinch", "Goose", "Jay", "Sparrow", "Meadowlark", "Chickadee", "Owl", "Crow", "Duck"]
+    var regionName = ""
     var audioPlayer : AVAudioPlayer!
     var allQuestions = QuestionSet()
+    var currentQuestion = ""
     var answerSet = AnswerSet()
     var pickedAnswer : String = ""
     var questionNumber : Int = 0
-    var score : Int = 0
+    var resultMessage : String = ""
+    var correct = 0
     var audioURL : URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: self.pickerChoices)
         pickerChoices.delegate = self
         pickerChoices.dataSource = self
         
@@ -30,8 +42,9 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             pickerChoices.selectRow(index, inComponent: 0, animated: false)
         }
         nextQuestion()
+//        createAnswerSet()
         pickedAnswer = answerSet.options[0]
-        print("\(answerSet.options)")
+        print(regionName)
     }
     
     // MARK: delegate methods
@@ -40,10 +53,11 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 5
+        return answerSet.options.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        pickerView.reloadAllComponents()
         return answerSet.options[row]
     }
     
@@ -51,6 +65,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let rowPicked = pickerChoices.selectedRow(inComponent: 0)
         pickedAnswer = answerSet.options[rowPicked]
         print("pickedAnswer: \(pickedAnswer)")
+//        pickerView.reloadAllComponents()
     }
     
     // MARK: methods for playing sounds
@@ -59,7 +74,6 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             player.play()
         }
     }
-    
     
 //    @IBAction func stopAudio(_ sender: Any) {
 //        if let player = audioPlayer {
@@ -79,32 +93,47 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func choosePressed(_ sender: Any) {
         if questionNumber <= 3 {
             if allQuestions.listQuestions[questionNumber].answer == pickedAnswer {
+                correct += 1
                 showResult(title: "correct!")
             } else {
                 showResult(title: "wrong!")
             }
             questionNumber += 1
             nextQuestion()
+//            createAnswerSet()
         } else {
             if allQuestions.listQuestions[questionNumber].answer == pickedAnswer {
-                let alert = UIAlertController(title: "Correct!", message: "You've finished all the questions, do you want to start over?", preferredStyle: .alert)
+                correct += 1
+                motivationalMessage(score: correct)
+                let alert = UIAlertController(title: "Correct!", message: resultMessage, preferredStyle: .alert)
+                
                 let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { UIAlertAction in
                     self.startOver()
                 })
+                let backToMenuAction = UIAlertAction(title: "Menu", style: .default, handler: { UIAlertAction in
+                    self.backToViewController()
+                })
                 alert.addAction(restartAction)
+                alert.addAction(backToMenuAction)
                 present(alert, animated: true, completion: nil)
             } else {
-                let alert = UIAlertController(title: "Wrong!", message: "You've finished all the questions, do you want to start over?", preferredStyle: .alert)
+                motivationalMessage(score: correct)
+                let alert = UIAlertController(title: "Wrong!", message: resultMessage, preferredStyle: .alert)
                 let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { UIAlertAction in
                     self.startOver()
                 })
+                let backToMenuAction = UIAlertAction(title: "Menu", style: .default, handler: { UIAlertAction in
+                    self.backToViewController()
+                })
                 alert.addAction(restartAction)
+                alert.addAction(backToMenuAction)
                 present(alert, animated: true, completion: nil)
             }
         }
-        
-        
-        print("\(questionNumber)")
+        updateScoreLabel()
+        self.pickerChoices.reloadAllComponents()
+//        pickerChoices.reloadAllComponents()
+//        print("\(questionNumber)")
     }
     
     // MARK: notifications
@@ -112,48 +141,104 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func showResult(title: String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         present(alert, animated: true, completion: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
             alert.dismiss(animated: true, completion: nil)
+            UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: self.pickerChoices)
         }
     }
     
     // MARK: question related methods
-    func createQuestionSet() {
-        
-    }
     
     func startOver() {
-        
+        let newQuestionSet = QuestionSet()
         questionNumber = 0
-//        score = 0
-//
-//        updateUI()
-        
+        correct = 0
+        allQuestions = newQuestionSet
+        updateScoreLabel()
         nextQuestion()
+        self.pickerChoices.reloadAllComponents()
         
-        print("starting over! questionNumber is \(questionNumber)")
-        
+//        createAnswerSet()
+//         pickerChoices.reloadAllComponents()
+//        print("starting over! questionNumber is \(questionNumber)")
     }
     
     func nextQuestion() {
         
-        
-        let title = allQuestions.listQuestions[questionNumber].soundFile
+        currentQuestion = allQuestions.listQuestions[questionNumber].soundFile
         let bundle = Bundle.main
-        
-        audioURL = bundle.url(forResource: title, withExtension: "mp3")
+
+        audioURL = bundle.url(forResource: currentQuestion, withExtension: "mp3")
         audioPlayer = try? AVAudioPlayer(contentsOf: audioURL!)
         if audioPlayer != nil {
             audioPlayer.prepareToPlay()
         }
         
-        if let player = audioPlayer {
-            player.play()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            if let player = self.audioPlayer {
+                player.play()
+            }
         }
-        print("correct answer: \(title), \(allQuestions.listQuestions[questionNumber].soundFile)")
+        
+        let newAnswerSet = AnswerSet()
+        answerSet = newAnswerSet
+        if !(answerSet.options.contains(currentQuestion)) {
+            answerSet.options[Int.random(in: 0...4)] = currentQuestion
+        }
+        print(currentQuestion)
+        let index = answerSet.options.firstIndex(of: answerSet.options[0])
+        self.pickerChoices.selectRow(index!, inComponent: 0, animated: true)
+        
+//        createAnswerSet()
+//        pickerChoices.reloadAllComponents()
+//        print("correct answer: \(title), \(allQuestions.listQuestions[questionNumber].soundFile)")
+    }
+//
+//    func createAnswerSet(){
+//        var newAnswerSet = [String]()
+//
+//        let answer = Int.random(in: 0 ..< 5)
+//
+//        while newAnswerSet.count < 6 {
+//            let random = Int.random(in: 0...9)
+//            let addChoice = allBirds[random]
+//            if newAnswerSet.contains(addChoice) {
+//                continue
+//            } else if newAnswerSet.contains(currentQuestion) {
+//                continue
+//            } else {
+//                newAnswerSet.append(addChoice)
+//            }
+//        }
+//        newAnswerSet[answer] = currentQuestion
+////        pickerChoices.reloadAllComponents()
+//        answerSet = newAnswerSet
+//        pickerChoices.reloadAllComponents()
+//    }
+//
+    // MARK: - other methods
+    func backToViewController () {
+//        let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "firstViewController") as! ViewController
+//
+//       self.navigationController?.pushViewController(firstViewController, animated: true)
+        //self.performSegue(withIdentifier: "backToMenuSegue", sender: nil)
+//        delegate?.testViewControllerGoBack(self)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func updateScoreLabel() {
+        score.text = "Score: \(correct) / 5"
+    }
+    
+    func motivationalMessage(score: Int) {
+        if score == 5 {
+            resultMessage = "Perfect! you got \(correct) out of 5!"
+        } else if score >= 3 {
+            resultMessage = "Good job! you got \(correct) out of 5!"
+        } else if score > 2 {
+            resultMessage = "Not bad! you got \(correct) out of 5!"
+        } else {
+            resultMessage = "Keep practicing! you got \(correct) out of 5!"
+        }
     }
 }
-    
-
-

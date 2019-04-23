@@ -10,13 +10,30 @@ import Foundation
 
 class QuestionSet {
     var listQuestions = [Question]()
+    let everyQuestions = ["Eagle", "Goldfinch", "Goose", "Jay", "Sparrow", "Meadowlark", "Chickadee", "Owl", "Crow", "Duck"]
     
     init() {
-        listQuestions.append(Question(fileName: "Mountain Chickadee", correctAnswer: "chickadee"))
-        listQuestions.append(Question(fileName: "Meadowlark", correctAnswer: "meadowlark"))
-        listQuestions.append(Question(fileName: "Duck", correctAnswer: "duck"))
-        listQuestions.append(Question(fileName: "Crow", correctAnswer: "crow"))
-        listQuestions.append(Question(fileName: "Owl", correctAnswer: "owl"))
-
+        while listQuestions.count < 6 {
+            let addQuestion = randomQuestion()
+            if listQuestions.contains(addQuestion) {
+                continue
+            } else {
+                listQuestions.append(addQuestion)
+            }
+        }
+//        listQuestions.append(Question(fileName: "Mountain Chickadee", correctAnswer: "Chickadee"))
+//        listQuestions.append(Question(fileName: "Meadowlark", correctAnswer: "Meadowlark"))
+//        listQuestions.append(Question(fileName: "Duck", correctAnswer: "Duck"))
+//        listQuestions.append(Question(fileName: "Crow", correctAnswer: "Crow"))
+//        listQuestions.append(Question(fileName: "Owl", correctAnswer: "Owl"))
     }
+    
+    func randomQuestion() -> Question {
+        let number = Int.random(in: 0 ..< 10)
+        let question = Question(fileName: everyQuestions[number], correctAnswer: everyQuestions[number])
+        
+        return question
+    }
+    
 }
+
