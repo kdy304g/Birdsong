@@ -10,16 +10,7 @@
 		300D4B372257A96C00D77EEB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D4B362257A96C00D77EEB /* Question.swift */; };
 		300D4B392257AA4800D77EEB /* QuestionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D4B382257AA4800D77EEB /* QuestionSet.swift */; };
 		300D4B3B2257AADA00D77EEB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 300D4B3A2257AADA00D77EEB /* Default-568h@2x.png */; };
-		30496790225F8FA0000DCB2F /* Meadowlark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30496730225F8FA0000DCB2F /* Meadowlark.mp3 */; };
-		3049679E225F8FA0000DCB2F /* Chickadee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30496745225F8FA0000DCB2F /* Chickadee.mp3 */; };
-		304967A0225F8FA0000DCB2F /* Owl.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30496748225F8FA0000DCB2F /* Owl.mp3 */; };
-		304967A1225F8FA0000DCB2F /* Crow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30496749225F8FA0000DCB2F /* Crow.mp3 */; };
-		304967AA225F8FA0000DCB2F /* Duck.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30496758225F8FA0000DCB2F /* Duck.mp3 */; };
-		304967C5225F9B87000DCB2F /* Goldfinch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 304967BB225F9B87000DCB2F /* Goldfinch.mp3 */; };
-		304967C8225F9B87000DCB2F /* Sparrow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 304967BE225F9B87000DCB2F /* Sparrow.mp3 */; };
-		304967C9225F9B87000DCB2F /* Goose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 304967BF225F9B87000DCB2F /* Goose.mp3 */; };
-		304967CA225F9B87000DCB2F /* Eagle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 304967C0225F9B87000DCB2F /* Eagle.mp3 */; };
-		304967CE225F9B87000DCB2F /* Jay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 304967C4225F9B87000DCB2F /* Jay.mp3 */; };
+		3092BAF8226F786B00056CB4 /* Current files in Resources */ = {isa = PBXBuildFile; fileRef = 3092BAF7226F786B00056CB4 /* Current files */; };
 		309F4058224CFD750049DD2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309F4057224CFD750049DD2F /* AppDelegate.swift */; };
 		309F405A224CFD750049DD2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309F4059224CFD750049DD2F /* ViewController.swift */; };
 		309F405D224CFD750049DD2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309F405B224CFD750049DD2F /* Main.storyboard */; };
@@ -33,16 +24,7 @@
 		300D4B362257A96C00D77EEB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		300D4B382257AA4800D77EEB /* QuestionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSet.swift; sourceTree = "<group>"; };
 		300D4B3A2257AADA00D77EEB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		30496730225F8FA0000DCB2F /* Meadowlark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Meadowlark.mp3; sourceTree = "<group>"; };
-		30496745225F8FA0000DCB2F /* Chickadee.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Chickadee.mp3; sourceTree = "<group>"; };
-		30496748225F8FA0000DCB2F /* Owl.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Owl.mp3; sourceTree = "<group>"; };
-		30496749225F8FA0000DCB2F /* Crow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Crow.mp3; sourceTree = "<group>"; };
-		30496758225F8FA0000DCB2F /* Duck.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Duck.mp3; sourceTree = "<group>"; };
-		304967BB225F9B87000DCB2F /* Goldfinch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Goldfinch.mp3; path = "Birdsong/Supporting Files/Current files/Goldfinch.mp3"; sourceTree = SOURCE_ROOT; };
-		304967BE225F9B87000DCB2F /* Sparrow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Sparrow.mp3; path = "Birdsong/Supporting Files/Current files/Sparrow.mp3"; sourceTree = SOURCE_ROOT; };
-		304967BF225F9B87000DCB2F /* Goose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Goose.mp3; path = "Birdsong/Supporting Files/Current files/Goose.mp3"; sourceTree = SOURCE_ROOT; };
-		304967C0225F9B87000DCB2F /* Eagle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Eagle.mp3; path = "Birdsong/Supporting Files/Current files/Eagle.mp3"; sourceTree = SOURCE_ROOT; };
-		304967C4225F9B87000DCB2F /* Jay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Jay.mp3; path = "Birdsong/Supporting Files/Current files/Jay.mp3"; sourceTree = SOURCE_ROOT; };
+		3092BAF7226F786B00056CB4 /* Current files */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Current files"; path = "Birdsong/Supporting Files/Current files"; sourceTree = "<group>"; };
 		309F4054224CFD750049DD2F /* Birdsong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birdsong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		309F4057224CFD750049DD2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		309F4059224CFD750049DD2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,26 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				309F4063224CFD750049DD2F /* Info.plist */,
-				304966FF225F8FA0000DCB2F /* Sound Files */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		304966FF225F8FA0000DCB2F /* Sound Files */ = {
-			isa = PBXGroup;
-			children = (
-				304967C0225F9B87000DCB2F /* Eagle.mp3 */,
-				304967BB225F9B87000DCB2F /* Goldfinch.mp3 */,
-				304967BF225F9B87000DCB2F /* Goose.mp3 */,
-				304967C4225F9B87000DCB2F /* Jay.mp3 */,
-				304967BE225F9B87000DCB2F /* Sparrow.mp3 */,
-				30496730225F8FA0000DCB2F /* Meadowlark.mp3 */,
-				30496745225F8FA0000DCB2F /* Chickadee.mp3 */,
-				30496748225F8FA0000DCB2F /* Owl.mp3 */,
-				30496749225F8FA0000DCB2F /* Crow.mp3 */,
-				30496758225F8FA0000DCB2F /* Duck.mp3 */,
-			);
-			path = "Sound Files";
 			sourceTree = "<group>";
 		};
 		309F404B224CFD750049DD2F = {
@@ -127,6 +91,7 @@
 				309F4056224CFD750049DD2F /* Birdsong */,
 				309F4055224CFD750049DD2F /* Products */,
 				309F4057224CFD750049DD2F /* AppDelegate.swift */,
+				3092BAF7226F786B00056CB4 /* Current files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,20 +172,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				304967CE225F9B87000DCB2F /* Jay.mp3 in Resources */,
-				304967C8225F9B87000DCB2F /* Sparrow.mp3 in Resources */,
 				309F4062224CFD750049DD2F /* LaunchScreen.storyboard in Resources */,
-				304967C9225F9B87000DCB2F /* Goose.mp3 in Resources */,
-				3049679E225F8FA0000DCB2F /* Chickadee.mp3 in Resources */,
-				304967A0225F8FA0000DCB2F /* Owl.mp3 in Resources */,
 				309F405F224CFD750049DD2F /* Assets.xcassets in Resources */,
 				300D4B3B2257AADA00D77EEB /* Default-568h@2x.png in Resources */,
-				304967A1225F8FA0000DCB2F /* Crow.mp3 in Resources */,
-				304967CA225F9B87000DCB2F /* Eagle.mp3 in Resources */,
-				304967AA225F8FA0000DCB2F /* Duck.mp3 in Resources */,
-				304967C5225F9B87000DCB2F /* Goldfinch.mp3 in Resources */,
+				3092BAF8226F786B00056CB4 /* Current files in Resources */,
 				309F405D224CFD750049DD2F /* Main.storyboard in Resources */,
-				30496790225F8FA0000DCB2F /* Meadowlark.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
