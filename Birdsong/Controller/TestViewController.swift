@@ -23,7 +23,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     let allBirds = ["Eagle", "Goldfinch", "Goose", "Jay", "Sparrow", "Meadowlark", "Chickadee", "Owl", "Crow", "Duck"]
     var regionName = ""
     var audioPlayer : AVAudioPlayer!
-    var allQuestions = QuestionSet()
+    var allQuestions = QuestionSet(region: "New England")
     var currentQuestion = ""
     var answerSet = AnswerSet()
     var pickedAnswer : String = ""
@@ -150,7 +150,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     // MARK: question related methods
     
     func startOver() {
-        let newQuestionSet = QuestionSet()
+        let newQuestionSet = QuestionSet(region: regionName)
         questionNumber = 0
         correct = 0
         allQuestions = newQuestionSet
@@ -168,7 +168,8 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         currentQuestion = allQuestions.listQuestions[questionNumber].soundFile
         let bundle = Bundle.main
 
-        audioURL = bundle.url(forResource: currentQuestion, withExtension: "mp3")
+        audioURL = bundle.url(forResource: currentQuestion, withExtension: "mp3", subdirectory: "Current files")
+        print(audioURL)
         audioPlayer = try? AVAudioPlayer(contentsOf: audioURL!)
         if audioPlayer != nil {
             audioPlayer.prepareToPlay()
@@ -188,7 +189,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         print(currentQuestion)
         let index = answerSet.options.firstIndex(of: answerSet.options[0])
         self.pickerChoices.selectRow(index!, inComponent: 0, animated: true)
-        
+        print(allQuestions.listQuestions[0].soundFile,allQuestions.listQuestions[1].soundFile,allQuestions.listQuestions[2].soundFile,allQuestions.listQuestions[3].soundFile,allQuestions.listQuestions[4].soundFile)
 //        createAnswerSet()
 //        pickerChoices.reloadAllComponents()
 //        print("correct answer: \(title), \(allQuestions.listQuestions[questionNumber].soundFile)")

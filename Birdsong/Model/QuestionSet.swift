@@ -11,10 +11,17 @@ import Foundation
 class QuestionSet {
     var listQuestions = [Question]()
     let everyQuestions = ["Eagle", "Goldfinch", "Goose", "Jay", "Sparrow", "Meadowlark", "Chickadee", "Owl", "Crow", "Duck"]
+    let birdDict =
+        ["New England":["Meadowlark", "Chickadee", "Owl", "Crow", "Duck"],
+         "Massachusetts":["Eagle", "Goldfinch", "Goose", "Jay", "Sparrow", "Meadowlark", "Chickadee", "Owl", "Crow", "Duck"],
+         "Maine":["Eagle", "Goldfinch", "Goose", "Jay", "Sparrow", "Meadowlark", "Chickadee", "Owl", "Crow", "Duck"],
+         "New York":["Eagle", "Goldfinch", "Goose", "Jay", "Sparrow", "Meadowlark", "Chickadee", "Owl", "Crow", "Duck"],
+         "New Hampshire":["Eagle", "Goldfinch", "Goose", "Jay", "Sparrow", "Meadowlark", "Chickadee", "Owl", "Crow", "Duck"],
+         "Vermont":["Eagle", "Goldfinch", "Goose", "Jay", "Sparrow", "Meadowlark", "Chickadee", "Owl", "Crow", "Duck"]]
     
-    init() {
-        while listQuestions.count < 6 {
-            let addQuestion = randomQuestion()
+    init(region: String) {
+        while listQuestions.count < 5 {
+            let addQuestion = randomQuestion(region: region)
             if listQuestions.contains(addQuestion) {
                 continue
             } else {
@@ -28,9 +35,9 @@ class QuestionSet {
 //        listQuestions.append(Question(fileName: "Owl", correctAnswer: "Owl"))
     }
     
-    func randomQuestion() -> Question {
-        let number = Int.random(in: 0 ..< 10)
-        let question = Question(fileName: everyQuestions[number], correctAnswer: everyQuestions[number])
+    func randomQuestion(region: String) -> Question {
+        let number = Int.random(in: 0 ..< 5)
+        let question = Question(fileName: birdDict[region]![number], correctAnswer: birdDict[region]![number])
         
         return question
     }

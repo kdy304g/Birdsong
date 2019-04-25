@@ -69,6 +69,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if segue.destination is TestViewController {
             if let test = segue.destination as? TestViewController {
                 test.regionName = region
+                test.allQuestions = QuestionSet(region: region)
             }
         }
     }
