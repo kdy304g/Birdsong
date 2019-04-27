@@ -21,9 +21,9 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     weak var delegate: TestViewControllerDelegate?
     
     let allBirds = ["Eagle", "Goldfinch", "Goose", "Jay", "Sparrow", "Meadowlark", "Chickadee", "Owl", "Crow", "Duck"]
-    var regionName = ""
+    var regionName = "Northeast"
     var audioPlayer : AVAudioPlayer!
-    var allQuestions = QuestionSet(region: "New England")
+    var allQuestions = QuestionSet(region: "Northeast")
     var currentQuestion = ""
     var answerSet = AnswerSet()
     var pickedAnswer : String = ""
@@ -168,7 +168,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         currentQuestion = allQuestions.listQuestions[questionNumber].soundFile
         let bundle = Bundle.main
 
-        audioURL = bundle.url(forResource: currentQuestion, withExtension: "mp3", subdirectory: "Current files")
+        audioURL = bundle.url(forResource: currentQuestion, withExtension: "mp3", subdirectory: regionName)
         print(audioURL)
         audioPlayer = try? AVAudioPlayer(contentsOf: audioURL!)
         if audioPlayer != nil {
