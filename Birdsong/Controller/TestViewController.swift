@@ -65,7 +65,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let rowPicked = pickerChoices.selectedRow(inComponent: 0)
         pickedAnswer = answerSet.options[rowPicked]
         print("pickedAnswer: \(pickedAnswer)")
-//        pickerView.reloadAllComponents()
+        pickerView.reloadAllComponents()
     }
     
     // MARK: methods for playing sounds
@@ -91,7 +91,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     // MARK: button related action
     
     @IBAction func choosePressed(_ sender: Any) {
-        if questionNumber <= 3 {
+        if questionNumber <= 8 {
             if allQuestions.listQuestions[questionNumber].answer == pickedAnswer {
                 correct += 1
                 showResult(title: "correct!")
@@ -164,12 +164,12 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func nextQuestion() {
-        
+        print("pickedAnswer: \(pickedAnswer)")
         currentQuestion = allQuestions.listQuestions[questionNumber].soundFile
         let bundle = Bundle.main
 
         audioURL = bundle.url(forResource: currentQuestion, withExtension: "mp3", subdirectory: regionName)
-        print(audioURL)
+        print(audioURL!)
         audioPlayer = try? AVAudioPlayer(contentsOf: audioURL!)
         if audioPlayer != nil {
             audioPlayer.prepareToPlay()
@@ -189,7 +189,11 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         print(currentQuestion)
         let index = answerSet.options.firstIndex(of: answerSet.options[0])
         self.pickerChoices.selectRow(index!, inComponent: 0, animated: true)
-        print(allQuestions.listQuestions[0].soundFile,allQuestions.listQuestions[1].soundFile,allQuestions.listQuestions[2].soundFile,allQuestions.listQuestions[3].soundFile,allQuestions.listQuestions[4].soundFile)
+        
+        let rowPicked = pickerChoices.selectedRow(inComponent: 0)
+        pickedAnswer = answerSet.options[rowPicked]
+
+//        print(allQuestions.listQuestions[0].soundFile,allQuestions.listQuestions[1].soundFile,allQuestions.listQuestions[2].soundFile,allQuestions.listQuestions[3].soundFile,allQuestions.listQuestions[4].soundFile)
 //        createAnswerSet()
 //        pickerChoices.reloadAllComponents()
 //        print("correct answer: \(title), \(allQuestions.listQuestions[questionNumber].soundFile)")
@@ -228,18 +232,18 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func updateScoreLabel() {
-        score.text = "Score: \(correct) / 5"
+        score.text = "Score: \(correct) / 10"
     }
     
     func motivationalMessage(score: Int) {
-        if score == 5 {
-            resultMessage = "Perfect! you got \(correct) out of 5!"
-        } else if score >= 3 {
-            resultMessage = "Good job! you got \(correct) out of 5!"
-        } else if score > 2 {
-            resultMessage = "Not bad! you got \(correct) out of 5!"
+        if score == 10 {
+            resultMessage = "Perfect! you got \(correct) out of 10!"
+        } else if score >= 7 {
+            resultMessage = "Good job! you got \(correct) out of 10!"
+        } else if score > 4 {
+            resultMessage = "Not bad! you got \(correct) out of 10!"
         } else {
-            resultMessage = "Keep practicing! you got \(correct) out of 5!"
+            resultMessage = "Keep practicing! you got \(correct) out of 10!"
         }
     }
 }

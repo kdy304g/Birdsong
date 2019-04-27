@@ -18,7 +18,7 @@ class QuestionSet {
          ]
     
     init(region: String) {
-        while listQuestions.count < 5 {
+        while listQuestions.count < 10 {
             let addQuestion = randomQuestion(region: region)
             if listQuestions.contains(addQuestion) {
                 continue
@@ -34,7 +34,8 @@ class QuestionSet {
     }
     
     func randomQuestion(region: String) -> Question {
-        let number = Int.random(in: 0 ..< 5)
+        let num = birdDict[region]!.count
+        let number = Int.random(in: 0 ..< num)
         let question = Question(fileName: birdDict[region]![number], correctAnswer: birdDict[region]![number])
         
         return question
