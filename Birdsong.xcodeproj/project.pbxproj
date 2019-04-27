@@ -10,7 +10,10 @@
 		300D4B372257A96C00D77EEB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D4B362257A96C00D77EEB /* Question.swift */; };
 		300D4B392257AA4800D77EEB /* QuestionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D4B382257AA4800D77EEB /* QuestionSet.swift */; };
 		300D4B3B2257AADA00D77EEB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 300D4B3A2257AADA00D77EEB /* Default-568h@2x.png */; };
-		3092BAF8226F786B00056CB4 /* Current files in Resources */ = {isa = PBXBuildFile; fileRef = 3092BAF7226F786B00056CB4 /* Current files */; };
+		30247F732274BBDB00B9A382 /* Northeast in Resources */ = {isa = PBXBuildFile; fileRef = 30247F722274BBDB00B9A382 /* Northeast */; };
+		30247F752274BC8F00B9A382 /* Southwest in Resources */ = {isa = PBXBuildFile; fileRef = 30247F742274BC8F00B9A382 /* Southwest */; };
+		302FC7BF2274B8FB003E7FB4 /* Southeast in Resources */ = {isa = PBXBuildFile; fileRef = 302FC7BE2274B8FB003E7FB4 /* Southeast */; };
+		302FC7C12274B933003E7FB4 /* Northwest in Resources */ = {isa = PBXBuildFile; fileRef = 302FC7C02274B933003E7FB4 /* Northwest */; };
 		309F4058224CFD750049DD2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309F4057224CFD750049DD2F /* AppDelegate.swift */; };
 		309F405A224CFD750049DD2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309F4059224CFD750049DD2F /* ViewController.swift */; };
 		309F405D224CFD750049DD2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309F405B224CFD750049DD2F /* Main.storyboard */; };
@@ -24,7 +27,10 @@
 		300D4B362257A96C00D77EEB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		300D4B382257AA4800D77EEB /* QuestionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSet.swift; sourceTree = "<group>"; };
 		300D4B3A2257AADA00D77EEB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		3092BAF7226F786B00056CB4 /* Current files */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Current files"; path = "Birdsong/Supporting Files/Current files"; sourceTree = "<group>"; };
+		30247F722274BBDB00B9A382 /* Northeast */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Northeast; path = "Birdsong/Supporting Files/Sound Files/Northeast"; sourceTree = "<group>"; };
+		30247F742274BC8F00B9A382 /* Southwest */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Southwest; path = "Birdsong/Supporting Files/Sound Files/Southwest"; sourceTree = "<group>"; };
+		302FC7BE2274B8FB003E7FB4 /* Southeast */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Southeast; path = "Birdsong/Supporting Files/Sound Files/Southeast"; sourceTree = "<group>"; };
+		302FC7C02274B933003E7FB4 /* Northwest */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Northwest; path = "Birdsong/Supporting Files/Sound Files/Northwest"; sourceTree = "<group>"; };
 		309F4054224CFD750049DD2F /* Birdsong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birdsong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		309F4057224CFD750049DD2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		309F4059224CFD750049DD2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +97,10 @@
 				309F4056224CFD750049DD2F /* Birdsong */,
 				309F4055224CFD750049DD2F /* Products */,
 				309F4057224CFD750049DD2F /* AppDelegate.swift */,
-				3092BAF7226F786B00056CB4 /* Current files */,
+				302FC7C02274B933003E7FB4 /* Northwest */,
+				30247F722274BBDB00B9A382 /* Northeast */,
+				30247F742274BC8F00B9A382 /* Southwest */,
+				302FC7BE2274B8FB003E7FB4 /* Southeast */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,10 +182,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				309F4062224CFD750049DD2F /* LaunchScreen.storyboard in Resources */,
+				302FC7BF2274B8FB003E7FB4 /* Southeast in Resources */,
 				309F405F224CFD750049DD2F /* Assets.xcassets in Resources */,
+				30247F732274BBDB00B9A382 /* Northeast in Resources */,
 				300D4B3B2257AADA00D77EEB /* Default-568h@2x.png in Resources */,
-				3092BAF8226F786B00056CB4 /* Current files in Resources */,
 				309F405D224CFD750049DD2F /* Main.storyboard in Resources */,
+				302FC7C12274B933003E7FB4 /* Northwest in Resources */,
+				30247F752274BC8F00B9A382 /* Southwest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
