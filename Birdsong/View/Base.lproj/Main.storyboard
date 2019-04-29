@@ -71,14 +71,14 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="107" id="KY3-4Z-DUQ"/>
                                 </constraints>
-                                <state key="normal" title="Play" image="playbutton"/>
+                                <state key="normal" title="Play" image="Icon-1024"/>
                                 <connections>
                                     <action selector="playAudio:" destination="fH9-Rg-FUU" eventType="touchUpInside" id="n4G-a3-qYv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4w-qP-hCJ">
-                                <rect key="frame" x="150.5" y="490" width="77" height="38"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                <rect key="frame" x="155" y="492" width="68" height="36"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
                                 <state key="normal" title="Choose">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -144,9 +144,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="playbutton" width="512" height="512"/>
+        <image name="Icon-1024" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="zIG-4Y-E3y"/>
         <segue reference="RLM-U7-1YX"/>
     </inferredMetricsTieBreakers>
 </document>

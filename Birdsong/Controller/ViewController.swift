@@ -28,7 +28,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if let index = regions.firstIndex(of: "Massachusetts") {
             pickerRegions.selectRow(index, inComponent: 0, animated: false)
         }
-        showRegion.text = "The Region is Northeast"
+        showRegion.text = "The Region is Northeast of U.S."
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,7 +53,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let rowRegion = pickerRegions.selectedRow(inComponent: 0)
-        showRegion.text = "The region is \(regions[rowRegion])"
+        showRegion.text = "The region is \(regions[rowRegion]) of U.S."
         region = regions[rowRegion]
     }
     
