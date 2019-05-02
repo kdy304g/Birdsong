@@ -169,7 +169,7 @@ class TestViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let bundle = Bundle.main
 
         audioURL = bundle.url(forResource: currentQuestion, withExtension: "mp3", subdirectory: regionName)
-        print(audioURL!)
+
         audioPlayer = try? AVAudioPlayer(contentsOf: audioURL!)
         if audioPlayer != nil {
             audioPlayer.prepareToPlay()
